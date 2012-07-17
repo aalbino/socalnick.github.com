@@ -1,0 +1,440 @@
+<!doctype html>  
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>reveal.js - HTML5 Presentations</title>
+
+        <meta name="description" content="An easy to use CSS 3D slideshow tool for quickly creating good looking HTML presentations.">
+        <meta name="author" content="Hakim El Hattab">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/ign.css">
+        <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+
+        <link rel="stylesheet" href="lib/css/solarized_light.css">
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Used to fade in a background when a specific slide state is reached -->
+            <div class="state-background"></div>
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h4 class="red"><img class="logo" src="assets/images/logo.png" /> Code Foo</h4>
+                    <h1>Zend Framework</h1>
+                    <h3 class="inverted">A PHP Web Application Framework</h3>
+                    <script>
+                        // Delicously hacky. Look away.
+                        if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+                    </script>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>About Zend Framework</h2>
+                        <blockquote cite="http://framework.zend.com/about/overview">
+                            Extending the art &amp; spirit of PHP, Zend Framework is based on simplicity, object-oriented best practices, 
+                            corporate friendly licensing, and a rigorously tested agile codebase.
+                        </blockquote>
+                        <p>
+                            <i><small>- <a href="http://framework.zend.com/about/overview">framework.zend.com</a></small></i>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>More About Zend Framework</h2>
+                        <ul>
+                            <li>Open Source PHP Library</li>
+                            <li><ul>
+                                <li>Born out of MWOP's PHp LibrarY</li>
+                                <li>Developed by Zend, the community, and other vendors (Google, Yahoo!, Adobe, Microsoft, etc)</li>
+                                <li>License based on new BSD license</li>
+                                <li>PHP 5.2.4 or later</li>
+                            </ul></li>
+                            <li>Object Oriented</li>
+                            <li>Web Application Framework</li>
+                            <li>Component Library = Loosely Coupled</li>
+                            <li>MVC Implementation</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Zend Framework by the Numbers</h2>
+                        <ul>
+                            <li>Over 10 Million Downloads</li>
+                            <li>Over 500 Contributors</li>
+                            <li>Over 1000 pages in our <a href="/manual/manual" target="_blank">Reference Guide</a>
+                            <li>Over 500 Examples in our <a href="/manual/manual" target="_blank">Reference Guide</a></li>
+                            <li>Almost 6 million hits on <a href="http://www.google.com" target="_blank">Google</a></li>
+                            <li>Over 900 hits currently on <a href="http://www.technorati.com" target="_blank">Technorati</a></li>
+                            <li>Over 120 projects based on, extending, or supporting Zend Framework at <a href="http://sourceforge.net/" target="_blank">SourceForge</a></li>
+                            <li>Over 280 projects based on, extending, or supporting Zend Framework at <a href="http://code.google.com/" target="_blank">Google Code</a></li>
+                            <li>Over 4000 resolved issues in our <a href="http://framework.zend.com/issues" target="_blank">Issue Tracker</a></li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Models - The M in MVC</h2>
+                        <p><q>Classes that abstract and encapsulate business logic</q>-Nick</p>
+                        <br/>
+                        <blockquote cite="http://en.wikipedia.org/wiki/Domain_model">
+                            A domain model in problem solving and software engineering is a conceptual model of 
+                            all the topics related to a specific problem. It describes the various entities, 
+                            their attributes, roles, and relationships, plus the constraints that govern the problem domain.
+                        </blockquote>
+                        <p>
+                            <i><small>- <a href="http://en.wikipedia.org/wiki/Domain_model">Wikipedia</a></small></i>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Models in Zend Framework</h2>
+                        <img src="assets/images/plaid.jpg">
+                        <p>
+                            ZF leaves this layer up to developer, but does provide several patterns to assist. 
+                            Models are NOT simply reading / writing to DB, Models can be persisted in numerous ways.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Doctrine in ZF2</h2>
+                        <img src="assets/images/doctrine.jpg">
+                        <p>
+                            Doctrine can be integrated with ZF2 using a module. Doctrine is an ORM / ODM based 
+                            on the Data Mapper pattern. Entities are managed by an Entity Manager, which uses 
+                            the Unit of Work pattern to persist entities transparently and efficiently
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Views - The V in MVC</h2>
+                        <img src="assets/images/browser.png" width="500">
+                        <ul>
+                            <li>Defines what is presented to user</li>
+                            <li>Render data sent from Controller</li>
+                            <li>Accepts user input</li>
+                            <li>Likely contains HTML Markup</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Controllers - The C in MVC</h2>
+                        <img src="assets/images/glue.jpg" width="300">
+                        <p>The "glue" of the MVC pattern.</p>
+                    </section>
+                    <section>
+                        <h2>More about Controllers</h2>
+                        <ul>
+                            <li>Manipulate models</li>
+                            <li>Determine which view to display</li>
+                            <li>Could send JSON to respond to AJAX requests instead of sending HTML</li>
+                            <li>Most experts recommend keeping the Controller as "skinny" as possible</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Resources</h2>
+                        <p>
+                            "Things" that need initialized every request and made available to the rest of 
+                            the application through a resource registry.
+                        </p>
+                        <p>Resources can be initialized using resource methods in your bootstrap class or 
+                        using resource plugin classes. The latter is preferred for re-usability.
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Cachemanager</h2>
+                        <p>Can be configured to lazy load multiple types of caches, e.g. APC and Memcache</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Db</h2>
+                        <p>Initializes a single Zend_Db adapter</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Dojo</h2>
+                        <p>Used to configure the Zend_Dojo view helpers</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Frontcontroller</h2>
+                        <p>
+                            Probably the most common resource you will load as it is used to configure
+                            Zend_Controller_Front. This resource provides the ability to set arbitrary front 
+                            controller parameters, specify plugins to initialize, and much more. 
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Layout</h2>
+                        <p>Used to configure Zend_Layout</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Locale</h2>
+                        <p>
+                            Used to setup an application-wide locale which is then used in all components
+                            that work with localization or internationalization.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Log</h2>
+                        <p>Configure a single Zend_Log with multiple writers</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Mail</h2>
+                        <p>Instantiate a transport for Zend_Mail</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Modules</h2>
+                        <p>Used to initialize your application modules.</p>
+                        <p>
+                            <i>Note</i>: modules are one area that the Zend Framework developers acknowledge
+                            they didn't get quite right. Zend Framework 2 handles modules much better.
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Multidb</h2>
+                        <p>Initialize multiple Zend_Db adapters</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Navigation</h2>
+                        <p>Configure a Zend_Navigation instance</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Router</h2>
+                        <p>Used to configure the router that is registered with the Front Controller</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Session</h2>
+                        <p>Configure Zend_Session and optionally initialize a session SaveHandler</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Translate</h2>
+                        <p>Initialize a Zend_Translate adapter</p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_Useragent</h2>
+                        <p>
+                            This resource provides the ability to configure and instantiate 
+                            Zend_Http_UserAgent for use within your application.
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Zend_Application_Resource_View</h2>
+                        <p>
+                            Used to configure a Zend_View instance. It also creates a 
+                            Zend_Controller_Action_Helper_ViewRenderer and registers the 
+                            ViewRenderer with Zend_Controller_Action_HelperBroker
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Autoloading in PHP</h2>
+                        <blockquote cite="http://php.net/manual/en/language.oop5.autoload.php">
+                            You may define an __autoload function which is automatically 
+                            called in case you are trying to use a class/interface which 
+                            hasn't been defined yet.
+                        </blockquote>
+                        <p>
+                            <i><small>- <a href="http://php.net/manual/en/language.oop5.autoload.php">PHP.net</a></small></i>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Autoloading in Zend Framework</h2>
+                        <p>
+                            Defers class loading until the last possible moment = performance boost.
+                            It is recommended to strip out require_once from everything but
+                            Zend/Loader/Autoloader.php
+                        </p>
+                    </section>
+                    <section>
+                        <h2>PEAR naming conventions</h2>
+                        <p>"Foo_Bar_Baz" corresponds to "Foo/Bar/Baz.php" on the filesystem</p>
+                    </section>
+                    <section>
+                        <h2>Namespace Matching</h2>
+                        <ul>
+                            <li>"Vendor" namespaces not PHP 5.3 namespaces</li>
+                            <li>Zend_ and ZendX_ by default</li>
+                            <li>Register other vendors, i.e. an Ign library</li>
+                            <li>Return FALSE as quickly as possible if not matched</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Fallback autoloading</h2>
+                        <h1>DON'T DO IT!!</h1>
+                        <p>Uses include() which will trigger a PHP Warning every time it fails</p>
+                    </section>
+                    <section>
+                        <h2>Toggle error suppression</h2>
+                        <h1>DON'T DO IT!!</h1>
+                        <p>Write better code!</p>
+                    </section>
+                    <section>
+                        <h2>Other features</h2>
+                        <ul>
+                            <li>Allow specifying custom callback for autoloading</li>
+                            <li>
+                                Allow manipulation of the SPL autoload callback chain
+                                (Add another loader before or after ZF autoloader)
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Plugins</h2>
+                        <img src="assets/images/plug.jpg" width="300">
+                    </section>
+                    <section>
+                        <h2>Plugins are classes</h2>
+                        <p>
+                            May need to extend abstract class or implement an interface, 
+                            but they are still just classes
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Common prefix</h2>
+                        <p>
+                            Related classes share common prefix e.g. a library containing 
+                            view helpers could contain a number of classes with prefix "Foo_View_Helper_"
+                        </p>
+                        <br/>
+                        <p>
+                            Everything after common prefix is the "short name" 
+                            e.g. "Foo_View_Helper_Bar", short name is "Bar"
+                        </p>
+                    </section>
+                    <section>
+                        <h2>What if plugin not found?</h2>
+                        <p>Once stack of prefix paths is exhausted, Zend_Loader_PluginLoader_Exception is thrown</p>
+                    </section>
+                    <section>
+                        <h2>Why do you care?</h2>
+                        <p>Override a view helper to change how a form element is rendered:</p>
+                        <pre><code contenteditable>
+$view-&gt;addHelperPath('foo/view/helpers', 'Foo_View_Helper');
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>What components have plugins?</h2>
+                        <ul>
+                            <li>Zend_Application - resources</li>
+                            <li>Zend_Controller_Action - action helpers</li>
+                            <li>Zend_Feed_Reader - plugins</li>
+                            <li>Zend_Form - elements, filters, validators, decorators</li>
+                            <li>Zend_View - view helpers</li>
+                        </ul>
+                        <br/>
+                        <br/>
+                        <p>
+                            <i>Note:</i> Zend_Front_Controller has a plugin system, 
+                            but it is different. Plugins have to be registered individually.
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>That's all folks!</h2>
+                        <p>Nicholas Calugar</p>
+                        <p>Senior Software Engineer</p>
+                        <p>ncalugar@ign.com / njcalugar@gmail.com</p>
+                        <p>twitter.com/socalnick</p>
+                        <p>https://github.com/socalnick</p>
+                        <br/>
+                        <p>More detail: <a href="http://goo.gl/b1FF0">http://goo.gl/b1FF0</a></p>
+                        <p>Code: <a href="https://github.com/SocalNick/ZF-Quickstart">https://github.com/SocalNick/ZF-Quickstart</a></p>
+                    </section>
+                </section>
+            </div>
+
+            <!-- The navigational controls UI -->
+            <aside class="controls">
+                <a class="left" href="#">&#x25C4;</a>
+                <a class="right" href="#">&#x25BA;</a>
+                <a class="up" href="#">&#x25B2;</a>
+                <a class="down" href="#">&#x25BC;</a>
+            </aside>
+
+            <!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+            <div class="progress"><span></span></div>
+
+        </div>
+
+        <!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+        <script src="lib/js/head.min.js"></script>
+
+        <script>
+            // Load the main reveal.js script
+            head.js( 'js/reveal.js', function() {
+                // Parse the query string into a key/value object
+                var query = {};
+
+                location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+                    query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+                } );
+
+                // Fires when a slide with data-state=customevent is activated
+                Reveal.addEventListener( 'customevent', function() {
+                    console.log( '"customevent" has fired' );
+                } );
+
+                // Fires each time a new slide is activated
+                Reveal.addEventListener( 'slidechanged', function( event ) {
+                    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+                } );
+
+                // Full list of configuration options available here:
+                // https://github.com/hakimel/reveal.js#configuration
+                Reveal.initialize({
+    				// Display controls in the bottom right corner
+    				controls: true,
+
+    				// Display a presentation progress bar
+    				progress: true,
+
+    				// If true; each slide will be pushed to the browser history
+    				history: true,
+
+    				// Apply a 3D roll to links on hover
+    				rollingLinks: false,
+
+    				// UI style
+    				theme: query.theme || 'default', // default/neon
+
+    				// Transition style
+    				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+    			});
+            } );
+
+            // Load third party scripts
+            head.js( 'lib/js/classList.js' );
+            head.js( 'lib/js/highlight.js', function() {
+                // Fire off syntax highlighting for potential code samples in the slides
+                hljs.initHighlightingOnLoad();
+            } );
+
+            // If we're runnning the notes server we need to include some additional JS
+            // TODO Is there a better way to determine if we're running the notes server?
+            if( window.location.host === 'localhost:1947' ) {
+                head.js( 'socket.io/socket.io.js', 'plugin/speakernotes/client.js' );
+            }
+        </script>
+
+    </body>
+</html>
