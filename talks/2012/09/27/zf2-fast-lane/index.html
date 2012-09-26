@@ -1,0 +1,212 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>ScnEsiWidget - Zend Framework 2 in the Fast Lane</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/ign.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			// If the query includes 'print-pdf' we'll use the PDF print sheet
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+				    <h4 class="red"><img class="logo" src="assets/images/logo.png" /> Entertainment</h4>
+					<h1>Scn Esi Widget</h1>
+					<h3>Zend Framework 2 in the Fast Lane</h3>
+				</section>
+				
+				<section>
+					<h2>Motivation</h2>
+					<p>
+						Let's face it: PHP is slow. Let's speed up our Zend Framework 2 web application by putting Varnish Cache in front of it!
+					</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you run the speaker notes server.
+					</aside>
+				</section>
+				
+				<section>
+				    <h2>Zend Framework 2</h2>
+				</section>
+				
+				<section>
+				    <h2>Varnish Cache</h2>
+				</section>
+				
+				<section>
+				    <section>
+			            <h2>But I have User Info!</h2>
+				    </section>
+
+				    <section>
+				        <h2>But I have Dynamic Content!</h2>
+				    </section>
+				</section>
+				
+				<section>
+				    <h2>Edge Side Includes (ESI)</h2>
+				</section>
+				
+				<section>
+				    <section>
+					    <h2>Scn Esi Widget Components</h2>
+					    <ul>
+					        <li>EsiWidget Controller Plugin</li>
+					        <li>EsiRenderer</li>
+					        <li>EsiStrategy</li>
+					    </ul>
+					    <br/>
+					    <br/>
+					    <h3>That's It!</h3>
+				    </section>
+				    <section>
+				        <h2>Esi Widget Controller Plugin</h2>
+				    </section>
+				    <section>
+				        <h2>Esi Renderer</h2>
+				    </section>
+				    <section>
+				        <h2>Esi Strategy</h2>
+				    </section>
+   				</section>
+   				
+   				<section>
+   					<section>
+   					    <h2>Installation</h2>
+   					    <p>Some funny image re: installation (maybe composer)</p>
+   					</section>
+   					<section>
+   					    <h2>Composer Intro</h2>
+   					</section>
+   					<section>
+   					    <h2>Composer Configuration</h2>
+   					</section>
+   					<section>
+   					    <h2>ZF2 Application Configuration</h2>
+   					</section>
+   					<section>
+   					    <h2>Varnish Configuration</h2>
+					</section>
+   				</section>
+   				
+   				<section>
+                    <section>
+                        <h2>Usage</h2>
+                        <p>Some funny image re: usage</p>
+                    </section>
+                    <section>
+                        <h2>Call Esi Widget Controller Plugin</h2>
+                    </section>
+                    <section>
+                        <h2>Echo Widget in View Script</h2>
+                    </section>
+                    <section>
+                        <h2>Action for Esi Widget</h2>
+                    </section>
+                    <section>
+                        <h2>View Script for Esi Widget</h2>
+                    </section>
+   				</section>
+   				
+   				<section>
+                    <h2>Demo!</h2>
+                    <ul>
+                        <li>Zend Skeleton Index</li>
+                        <li>Zend Skeleton Index w/ESI (it works w/o Varnish!)</li>
+                        <li>Zend Skeleton Index w/ESI behind Varnish</li>
+                    </ul>
+   				</section>
+				
+				<section>
+                    <section>
+                        <h2>That's all folks!</h2>
+                        <p>Nicholas Calugar</p>
+                        <p>Senior Software Engineer @ IGN Entertainment</p>
+                        <p>ncalugar@ign.com / njcalugar@gmail.com</p>
+                        <p>twitter.com/socalnick</p>
+                        <p>https://github.com/socalnick</p>
+                        <br/>
+                        <p>Code: <a href="https://github.com/SocalNick/ScnEsiWidget">https://github.com/SocalNick/ScnEsiWidget</a></p>
+                        <p>Slides: <a href="http://socalnick.github.com/talks/2012/09/27/zf2-fast-lane/">http://socalnick.github.com/talks/2012/09/27/zf2-fast-lane/</a></p>
+                    </section>
+                </section>
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Presentation progress bar -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				// Apply a 3D roll to links on hover
+                rollingLinks: false,
+				
+				theme: Reveal.getQueryHash().theme || 'default', // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+				]
+			});
+			
+		</script>
+
+	</body>
+</html>
