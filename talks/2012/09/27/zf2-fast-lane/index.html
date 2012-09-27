@@ -59,24 +59,60 @@
 				
 				<section>
 				    <h2>Zend Framework 2</h2>
+				    <ul>
+				        <li>Modular</li>
+				        <li>Secure</li>
+				        <li>Extensible</li>
+				        <li>Community</li>
+				        <li>High Performing</li>
+				        <li>Enterprise Ready</li>
+				    </ul>
 				</section>
 				
 				<section>
 				    <h2>Varnish Cache</h2>
+				    <blockquote cite="https://www.varnish-cache.org/about">
+				        Varnish Cache is a web application accelerator also known as a caching HTTP reverse proxy.
+				        You install it in front of any server that speaks HTTP and configure it to cache the contents.
+				        Varnish Cache is really, really fast.
+				        It typically speeds up delivery with a factor of 300 - 1000x, depending on your architecture.
+				    </blockquote>
+				    <p>
+                        <i><small>- <a href="https://www.varnish-cache.org/about">www.varnish-cache.org</a></small></i>
+                    </p>
 				</section>
 				
 				<section>
 				    <section>
 			            <h2>But I have User Info!</h2>
+			            <img src="assets/images/Macaulay-Culkin-53938901.jpeg">
+			             <ol>
+			                <li>Configure Varnish to never cache "private" parts of the page</li>
+			                <li>Configure Varnish to add the UUID to the hash key</li>
+			                <li>Do all user specific stuff in the client</li>
+			            </ol>
 				    </section>
 
 				    <section>
 				        <h2>But I have Dynamic Content!</h2>
+				        <img src="assets/images/shame.jpeg">
+				        <ol>
+				            <li>Probably not as much as you think</li>
+				            <li>Layout? Published blog post?</li>
+				            <li>Blog Comments? Can still cache for short time</li>
+				            <li>At 500 req/s, caching for 1s alleviates a tremendous load from origin servers</li>
+				            <li>Let's face it...as soon as the data leaves your DC, it's already old</li>
+				        </ol>
 				    </section>
 				</section>
 				
 				<section>
 				    <h2>Edge Side Includes (ESI)</h2>
+				    <p>Edge Side Includes is a simple markup language for edge level dynamic web content assembly.
+				    The purpose is to tackle the problem of web infrastructure scaling and is an application of edge computing.</p>
+				    <pre><code contenteditable>
+&lt;esi:include src="http://example.com/1.html" alt="http://bak.example.com/2.html" onerror="continue"/&gt;
+                        </code></pre>
 				</section>
 				
 				<section>
@@ -93,50 +129,144 @@
 				    </section>
 				    <section>
 				        <h2>Esi Widget Controller Plugin</h2>
+				        <ul>
+				            <li>Wrapper around the ZF2 Forward Plugin</li>
+				            <li>Sets up a clone of the MVC event with it's own Request / Response</li>
+				            <li>Uses application routes to forward to proper controller / action</li>
+				            <li>Injects the resulting View Model into the parent with required params</li>
+				        </ul>
 				    </section>
 				    <section>
 				        <h2>Esi Renderer</h2>
+				        <ul>
+				            <li>Only chosen when client announces surrogate capability</li>
+				            <li>Wrapper around the ZF2 PhpRenderer</li>
+				            <li>Replaces actual view content with ESI tag</li>
+				        </ul>
 				    </section>
 				    <section>
 				        <h2>Esi Strategy</h2>
+				        <ul>
+				            <li>Chooses EsiRenderer when client announces surrogate capability</li>
+				            <li>Adds a response header announcing "Surrogate-Control", i.e. the HTML may contain ESI tags that need replaced 
+				        </ul>
 				    </section>
    				</section>
    				
    				<section>
    					<section>
    					    <h2>Installation</h2>
-   					    <p>Some funny image re: installation (maybe composer)</p>
+   					    <img src="assets/images/composer.png"/>
    					</section>
    					<section>
-   					    <h2>Composer Intro</h2>
+   					    <h2>Composer</h2>
+   					    <blockquote cite="http://getcomposer.org/doc/00-intro.md">
+                        Composer is a tool for dependency management in PHP.
+                        It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+                    </blockquote>
+                    <p>
+                        <i><small>- <a href="http://getcomposer.org/doc/00-intro.md">getcomposer.org</a></small></i>
+                    </p>
    					</section>
    					<section>
    					    <h2>Composer Configuration</h2>
+   					    <pre><code contenteditable>
+"minimum-stability": "dev",
+"require": {
+    "php": ">=5.3.3",
+    "zendframework/zendframework": "2.*",
+    "socalnick/scn-esi-widget": "dev-master"
+}
+   					    </code></pre>
    					</section>
    					<section>
    					    <h2>ZF2 Application Configuration</h2>
+   					    <pre><code contenteditable>
+return array(
+    'modules' => array(
+        'Application',
+        'ScnEsiWidget',
+    ),
+);
+   					    </code></pre>
    					</section>
    					<section>
    					    <h2>Varnish Configuration</h2>
+   					    <pre><code contenteditable>
+backend default {
+    .host = "127.0.0.1";
+    .port = "10088";
+}
+
+sub vcl_recv {
+    # Set a header announcing Surrogate Capability to the origin
+    # ScnEsiWidget sees this header and emits ESI tag for widgets
+    set req.http.Surrogate-Capability = "varnish=ESI/1.0";
+}
+
+sub vcl_fetch {
+    # Unset the Surrogate Control header and do ESI
+    if (beresp.http.Surrogate-Control ~ "ESI/1.0") {
+        unset beresp.http.Surrogate-Control;
+        set beresp.do_esi = true;
+    }
+}
+   					    </code></pre>
 					</section>
    				</section>
    				
    				<section>
                     <section>
                         <h2>Usage</h2>
-                        <p>Some funny image re: usage</p>
+                        <img src="assets/images/usage.jpeg">
                     </section>
                     <section>
                         <h2>Call Esi Widget Controller Plugin</h2>
+                        <pre><code contenteditable>
+public function esiAction()
+{
+    $viewModel = new ViewModel();
+    $this->esiWidget()->addToViewModel($viewModel, '/application/index/recent-tweets', 'recentTweets');
+
+    $headers = $this->getResponse()->getHeaders();
+    $cacheControl = new \Zend\Http\Header\CacheControl();
+    $cacheControl->addDirective('max-age', '60');
+    $headers->addHeader($cacheControl);
+
+    return $viewModel;
+}
+                        </code></pre>
                     </section>
                     <section>
                         <h2>Echo Widget in View Script</h2>
+                        <pre><code contenteditable>
+&lt;div&gt;&lt;?php echo $this->recentTweets ?&gt;&lt;/div&gt;
+                        </code></pre>
                     </section>
                     <section>
                         <h2>Action for Esi Widget</h2>
+                        <pre><code contenteditable>
+public function recentTweetsAction()
+{
+    $headers = $this->getResponse()->getHeaders();
+    $cacheControl = new \Zend\Http\Header\CacheControl();
+    $cacheControl->addDirective('max-age', '10');
+    $headers->addHeader($cacheControl);
+
+    $viewModel = new ViewModel();
+    $viewModel->setTerminal(true);
+    return $viewModel;
+}
+                        </code></pre>
                     </section>
                     <section>
                         <h2>View Script for Esi Widget</h2>
+                        <pre><code contenteditable>
+&lt;ul&gt;
+    &lt;li&gt;&lt;?php echo date('h:i:s')?&gt; @SocalNick: This is a recent tweet!&lt;/li&gt;
+    &lt;li&gt;&lt;?php echo date('h:i:s', time() - 10)?&gt; @Touge: I'm at SFPHP!&lt;/li&gt;
+&lt;/ul&gt;
+                        </code></pre>
                     </section>
    				</section>
    				
